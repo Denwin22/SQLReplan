@@ -6,7 +6,7 @@ branches:
   only:
     - main  # ветка git
 
-    - name: Waiting for сontainer start
+    - name: Waiting for container start
       run: sleep 30
 
 build: off  # будем использовать свой скрипт сборки
