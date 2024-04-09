@@ -11,7 +11,8 @@ import java.sql.SQLException;
 public class SQLHelper {
     private static final QueryRunner runner = new QueryRunner();
 
-    private SQLHelper() {}
+    private SQLHelper() {
+    }
 
     private static Connection getConn() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
@@ -25,9 +26,9 @@ public class SQLHelper {
 
     @SneakyThrows
     public static void cleanDatabase() {
-        runner.execute(getConn(),"DELETE FROM auth_codes");
+        runner.execute(getConn(), "DELETE FROM auth_codes");
         runner.execute(getConn(), "DELETE FROM cards");
-        runner.execute(getConn(),"DELETE FROM users");
+        runner.execute(getConn(), "DELETE FROM users");
     }
 
     @SneakyThrows

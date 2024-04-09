@@ -11,7 +11,8 @@ public class DataHelper {
     private static String testName = "vasya";
     private static String testPassword = "qwerty123";
 
-    private DataHelper() {}
+    private DataHelper() {
+    }
 
     @Value
     public static class AuthData {

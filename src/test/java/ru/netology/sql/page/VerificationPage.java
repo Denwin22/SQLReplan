@@ -15,13 +15,13 @@ public class VerificationPage {
         codeField.shouldBe(visible);
     }
 
-    public DashboardPage validVerify (String code) {
+    public DashboardPage validVerify(String code) {
         codeField.setValue(code);
         verifyButton.click();
         return new DashboardPage();
     }
 
-    public void verify (String code) {
+    public void verify(String code) {
         codeField.setValue(code);
         verifyButton.click();
     }
