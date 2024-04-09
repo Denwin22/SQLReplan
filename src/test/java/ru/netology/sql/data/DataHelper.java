@@ -8,8 +8,8 @@ import java.util.Locale;
 public class DataHelper {
 
     private static Faker faker = new Faker(new Locale("en"));
-    public static String testName = "vasya";
-    public static String testPassword = "qwerty123";
+    private static String testName = "vasya";
+    private static String testPassword = "qwerty123";
 
     private DataHelper() {}
 

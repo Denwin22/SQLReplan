@@ -29,7 +29,6 @@ public class BankLoginTest {
 
     @BeforeEach
     void setUp() {
-        loginPage = open("http://localhost:9999", LoginPage.class);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         Map<String, Object> prefs = new HashMap<String, Object>();
@@ -37,6 +36,7 @@ public class BankLoginTest {
         prefs.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
         Configuration.browserCapabilities = options;
+        loginPage = open("http://localhost:9999", LoginPage.class);
     }
 
     @Test
