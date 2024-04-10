@@ -3,6 +3,7 @@ package ru.netology.sql.test;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeOptions;
+import ru.netology.sql.data.DataHelper;
 import ru.netology.sql.page.LoginPage;
 
 import java.util.HashMap;
@@ -50,14 +51,14 @@ public class BankLoginTest {
     @Test
     @DisplayName("Should get error when invalid login")
     void shouldNotLoginWithInvalidLogin() {
-        loginPage.validLogin(new AuthData(testName, generatePassword()));
+        loginPage.validLogin(DataHelper.getTestAuthData());
         loginPage.findErrorMessage("Неверно указан логин или пароль");
     }
 
     @Test
     @DisplayName("Should get error when invalid password")
     void shouldNotLoginWithInvalidPassword() {
-        loginPage.validLogin(new AuthData(generateLogin(), testPassword));
+        loginPage.validLogin(new AuthData(generateLogin(), DataHelper.generatePassword()));
         loginPage.findErrorMessage("Неверно указан логин или пароль");
     }
 
@@ -81,7 +82,7 @@ public class BankLoginTest {
     void shouldBlockedWhenInvalidPasswordEnterMoreTimes() {
         for (int i = 0; i < 3; i++) {
             refresh();
-            loginPage.validLogin(new AuthData(testName, generatePassword()));
+            loginPage.validLogin(new AuthData(DataHelper.generateLogin(), generatePassword()));
             loginPage.findErrorMessage("Неверно указан логин или пароль");
         }
         String expected = "blocked";

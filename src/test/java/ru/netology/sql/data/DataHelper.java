@@ -11,8 +11,7 @@ public class DataHelper {
     private static String testName = "vasya";
     private static String testPassword = "qwerty123";
 
-    private DataHelper() {
-    }
+    private DataHelper() {}
 
     @Value
     public static class AuthData {
@@ -21,7 +20,7 @@ public class DataHelper {
     }
 
     public static AuthData getAuthData() {
-        return new AuthData(testName, testPassword);
+        return new AuthData(getTestName(), getTestPassword());
     }
 
     public static String generateLogin() {
@@ -39,4 +38,17 @@ public class DataHelper {
     public static String generateCode() {
         return faker.number().digits(6);
     }
+
+    public static String getTestName() {
+        return testName;
+    }
+
+    public static String getTestPassword() {
+        return testPassword;
+    }
+
+    public static AuthData getTestAuthData() {
+        return new AuthData(getTestName(), getTestPassword());
+    }
 }
+

@@ -6,12 +6,14 @@ branches:
   only:
     - main  # ветка git
 
+build: off  # будем использовать свой скрипт сборки
+
 install:
   - name: Container start
     run: docker-compose up &
-  - name: Waiting for container start
+  - name: Waiting for сontainer start
     run: sleep 30
-    # запускаем SUT (& означает, что в фоновом режиме не блокируем терминал для запуска тестов)
+  # запускаем SUT (& означает, что в фоновом режиме не блокируем терминал для запуска тестов)
   - java -jar ./artifacts/app-deadline.jar &
   - chmod +x gradlew
 
